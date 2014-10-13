@@ -1,5 +1,3 @@
-
-
 package numberpuzzle;
 
 public class options {

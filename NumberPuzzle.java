@@ -49,9 +49,7 @@ public class NumberPuzzle {
             System.out.println("\t" + nivel.length + " Filhos no nivel " + profundidade);
             
             for (State state : nivel) {
-                nos++;
-                //System.out.println("Nó nº "+nos);
-                
+                nos++;                
                 
                 if (state.compareTo(resultado) == 0) {
                     System.out.println("Solução encontrada");
@@ -89,7 +87,6 @@ public class NumberPuzzle {
         State[] result = new State[solucao.size()];
         int c = solucao.size() - 1;
         for (State state : solucao) {
-            //System.out.println("" + state.toString());
             result[c] = state;
             c--;
         }
@@ -101,9 +98,7 @@ public class NumberPuzzle {
     }
 
     public static State[] aprofunda(State atual, State resultado) throws CloneNotSupportedException {
-        
-        //System.out.println(" Raiz do nivel " + profundidade);
-        //System.out.println(atual.toString());
+
         State[] aux = new State[atual.qtd_mov()];
         State[] finalAux = new State[atual.qtd_mov()];
         int cont = 0;
@@ -139,7 +134,6 @@ public class NumberPuzzle {
             State auxpai = aux[x].pai;
                 while(auxpai != null){
                     if(aux[x].compareTo(auxpai)==0){
-                        //System.out.println("Antecessor já existente!");
                         options.cont_ant_exist++;
                         ///Hora de excluir este estado
                         for(int k = x; k < aux.length-1; k++){
@@ -153,17 +147,8 @@ public class NumberPuzzle {
                     auxpai = auxpai.pai;
                 }
                 auxpai = null;
-                //System.gc();
         }
         
-        
-        
-        //System.out.println(""+aux.length);
-        /*
-         System.out.println("" + aux.length + " Filhos do nivel " + profundidade);
-         for (State state : aux) {
-         System.out.println("" + state.toString());
-         }*/
         ///Se encontrar algum antecessor repetido logo, retorna-se o vetor menor sem a repeticao
         
         if(found){
