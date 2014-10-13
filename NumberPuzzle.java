@@ -9,9 +9,6 @@ public class NumberPuzzle {
 
     static int profundidade;
 
-    /**
-     * @param args the command line arguments
-     */
     public static void executa(String[] args) throws CloneNotSupportedException {
         profundidade = 1;
         int[][] meta = {{1, 2, 3}, {8, 0, 4}, {7, 6, 5}};
@@ -31,8 +28,6 @@ public class NumberPuzzle {
             raiz = new State(hell);
         }
         State resultado = new State(meta);
-
-
 
         State atual = raiz;
         State[] nivel = aprofunda(atual, resultado);
@@ -62,27 +57,17 @@ public class NumberPuzzle {
                     System.out.println("Solução encontrada");
                     res = true;
                     while (state.pai != null) {
-                        //System.out.println("" + state.toString());
                         solucao.add(state);
                         state = state.pai;
                     }
                     solucao.add(state);
-                    //System.out.println("" + state.toString());
                 }
                 
             }
             if (res) {
                 break;
             } else {
-                
-                
-                /*for(int c = 0; c < niveis.size(); c++){
-                    System.out.println("c"+c);
-                }*/
-               /* for (State state : nivel) {
-                   state.pai = null;
-                   state = null;                 
-                }  */
+
                 State[] aux = null;
                 for (State state : nivel) {
                     aux = aprofunda(state, resultado);                  
